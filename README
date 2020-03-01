@@ -1,5 +1,11 @@
-OPONDER'S TYPESCRIPT STARTER PACK
----------------------------------
+OPONDER'S TYPESCRIPT REACT STARTER PACK
+---------------------------------------
 
 This is just my home rolled webpack config for a typescript project. Following
 various tutorials and whatnot.
+
+Start the development server with
+
+```
+yarn start
+```

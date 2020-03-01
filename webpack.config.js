@@ -18,7 +18,6 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Output Management',
       template: 'src/index.ejs'
     }),
   ],
