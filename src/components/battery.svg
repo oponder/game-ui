@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Battery</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Battery" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M203,84 L40,84 L40,165 L203,165 L203,84 Z M219,179 L24,179 L24,70 L219,70 L219,110 L239,110 L239,140 L219,140 L219,179 Z" id="Outline" fill="#D8D8D8"></path>
+        <rect id="FillLevel" fill="#D8D8D8" x="54" y="98" width="133" height="53"></rect>
+    </g>
+</svg>
