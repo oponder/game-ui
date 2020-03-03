@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import styled from '@emotion/styled'
 
 const Wrapper = styled('div')`
@@ -20,17 +20,20 @@ const User = styled('div')`
 
 const SystemInfo = styled('div')`
   div {
-    margin-right: 10px;
+    margin-right: 15px;
   }
 `
 
 const Time = styled('div')`
-  font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
-  font-weight: 600;
+  font-family: neuzeit-grotesk, sans-serif;
+  font-weight: 400;
   font-style: normal;
+  font-size: 20px;
   display: inline-block;
+  letter-spacing: 2px;
   span {
-    font-size: 10px;
+    font-size: 12px;
+    letter-spacing: 0px;
   }
 `
 
@@ -47,22 +50,53 @@ const Wifi = styled('div')`
   }
 `
 
+const BatteryLevelText = styled('div')`
+  font-family: neuzeit-grotesk, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  display: inline-block;
+  margin-left: -5px;
+  margin-right: 5px !important;
+
+  text-align: right;
+  span {
+    font-size: 12px;
+  }
+`
+
 const BatteryLevel = styled('div')`
   display: inline-block;
-  width: 30px;
+  width: 35px;
   position: relative;
-  top: 9px;
+  top: 1px;
 
   svg {
     display: inline-block;
     width: 100%;
     height: 100%;
   }
+
+  #FillLevel {
+    transition: 0.2s ease-in-out 0s;
+  }
 `
 
 export interface Props {  }
 
 export const Nav = (props: Props) => {
+  const [batteryLevel, setBatteryLevel] = useState(100);
+
+  const toggleSize = () => {
+    const min = 0;
+    const max = 100;
+    const randomValue = min + Math.floor((max - min) * Math.random());
+
+    setBatteryLevel(randomValue);
+  }
+
+  const batteryWidth = 133 * (batteryLevel / 100);
+
   return <Wrapper>
     <Users>
       <User/>
@@ -72,7 +106,7 @@ export const Nav = (props: Props) => {
 
     <SystemInfo>
       <Time>
-        5:06<span>PM</span>
+        2:12<span>AM</span>
       </Time>
 
       <Wifi>
@@ -84,11 +118,14 @@ export const Nav = (props: Props) => {
             </g>
         </svg>
       </Wifi>
-      <BatteryLevel>
-        <svg width="256px" height="256px" viewBox="0 0 256 256">
+      <BatteryLevelText>
+        {batteryLevel}<span>%</span>
+      </BatteryLevelText>
+      <BatteryLevel onClick={toggleSize}>
+        <svg width="256px" height="109px" viewBox="0 0 256 109">
           <g id="Battery" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <path d="M203,84 L40,84 L40,165 L203,165 L203,84 Z M219,179 L24,179 L24,70 L219,70 L219,110 L239,110 L239,140 L219,140 L219,179 Z" id="Outline" fill="#D8D8D8"></path>
-            <rect id="FillLevel" fill="#D8D8D8" x="54" y="98" width="133" height="53"></rect>
+              <path d="M179,14 L16,14 L16,95 L179,95 L179,14 Z M195,109 L0,109 L0,0 L195,0 L195,40 L215,40 L215,70 L195,70 L195,109 Z" id="Outline" fill="#D8D8D8"></path>
+              <rect id="FillLevel" fill={batteryLevel < 20 ? '#f00' : '#D8D8D8'} x="30" y="28" width={batteryLevel < 20 ? 20 : batteryWidth} height="53"></rect>
           </g>
         </svg>
       </BatteryLevel>

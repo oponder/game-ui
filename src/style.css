@@ -1,5 +1,5 @@
 body {
-  background-color: #333;
+  background-color: #141414;
   color: #fff;
   font-family: a-otf-ud-shin-go-pr6n, sans-serif;
   font-weight: 300;
@@ -19,7 +19,8 @@ h1 {
 }
 
 #appOuter {
-  border: 1px solid #555;
+  border: 5px solid #111;
+  border-radius: 10px;
   padding-top: 56.25%;
   position: relative;
   margin: 25px 0px;
@@ -27,6 +28,8 @@ h1 {
 
 #app {
   position: absolute;
+  border-radius: 10px;
+  background-color: #222;
   top: 0;
   left: 0;
   width: 100%;
@@ -36,4 +39,12 @@ h1 {
 #caption {
   text-align: center;
   font-size: 14px;
+}
+
+a {
+  color: #fff;
+}
+
+.wf-loading {
+  visibility: hidden;
 }
