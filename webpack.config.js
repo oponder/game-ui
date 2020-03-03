@@ -39,6 +39,15 @@ module.exports = {
           'css-loader',
         ],
       },
+      {
+          test: /\.(png|jp(e*)g|svg)$/,
+          use: [{
+              loader: 'url-loader',
+              options: {
+                  name: 'images/[hash]-[name].[ext]'
+              }
+          }]
+      }
     ],
   },
   resolve: {
