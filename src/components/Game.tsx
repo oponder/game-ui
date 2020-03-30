@@ -9,12 +9,12 @@ const borderGlow = keyframes`
 `
 
 const Wrapper = styled('div')`
-  width: 250px;
-  margin-right: 20px;
+  margin-right: 10px;
   display: inline-block;
 `;
 
 const GameIcon = styled('div')`
+  box-sizing: border-box;
   width: 250px;
   height: 250px;
   background-color: #444;
@@ -22,21 +22,11 @@ const GameIcon = styled('div')`
   &.selected {
     border: 8px solid #53C0B1;
     border-radius: 4px;
+    animation: ${borderGlow} 1s 0s infinite;
+    width: 266px;
+    height: 266px;
     position: relative;
     top: -8px;
-
-    animation: ${borderGlow} 1s 0s infinite;
-  }
-
-  &.selected::before {
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    border: 4px solid #222;
-    display: block;
-    width: 250px;
-    height: 250px;
-    content: '';
   }
 `;
 

@@ -48,7 +48,7 @@ export default (props: Props) => {
 
     if(selectedGame.ref !== null) {
       console.log(selectedGame.ref.current.offsetLeft);
-      listRef.current.scrollLeft = selectedGame.ref.current.offsetLeft - 40;
+      // listRef.current.scrollLeft = selectedGame.ref.current.offsetLeft - 40;
     }
 
     setGames(ga);
