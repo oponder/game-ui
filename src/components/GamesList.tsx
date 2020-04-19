@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import styled from '@emotion/styled'
 import Game from './Game';
+import click1 from '../sounds/click-1.wav';
+import click2 from '../sounds/click-2.wav';
 
 const Wrapper = styled('div')`
   margin-top: 40px;
@@ -17,6 +19,9 @@ const List = styled('div')`
   overflow-y: hidden;
   width: fit-content;
 `;
+
+let c1 = new Audio(click1);
+let c2 = new Audio(click2);
 
 export interface Props {}
 
@@ -36,6 +41,7 @@ export default (props: Props) => {
   ]);
 
   const select = (title: string) => {
+    c1.play();
     let selectedGame: IGame = null;
 
     let ga = games.map(g => {
@@ -54,12 +60,16 @@ export default (props: Props) => {
     setGames(ga);
   }
 
+  const blip = () => {
+    c2.play();
+  }
+
   console.log('rendered games list');
 
   return <Wrapper ref={listRef}>
     <List>
       {
-        games.map(g => <Game forwardedRef={g.ref} key={g.title} selected={g.selected} title={g.title} onClick={select.bind(undefined, g.title)} />)
+        games.map(g => <Game forwardedRef={g.ref} key={g.title} selected={g.selected} title={g.title} onMouseDown={blip} onClick={select.bind(undefined, g.title)} />)
       }
     </List>
   </Wrapper>;

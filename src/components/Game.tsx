@@ -28,6 +28,10 @@ const GameIcon = styled('div')`
     position: relative;
     top: -8px;
   }
+
+  &:hover {
+    background-color: #555;
+  }
 `;
 
 const Title = styled('div')`
@@ -39,10 +43,10 @@ const Title = styled('div')`
   font-weight: bold;
 `;
 
-export interface Props { selected: boolean, title: string, onClick: () => void, forwardedRef: any}
+export interface Props { selected: boolean, title: string, onMouseDown: () => void, onClick: () => void, forwardedRef: any}
 
 export default (props: Props) => {
-  return <Wrapper onClick={props.onClick} ref={props.forwardedRef}>
+  return <Wrapper onClick={props.onClick} onMouseDown={props.onMouseDown} ref={props.forwardedRef}>
     {
       props.selected && <Title>{props.title}</Title>
     }

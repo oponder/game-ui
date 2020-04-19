@@ -47,6 +47,15 @@ module.exports = {
                   name: 'images/[hash]-[name].[ext]'
               }
           }]
+      },
+      {
+          test: /\.(wav)$/,
+          use: [{
+              loader: 'url-loader',
+              options: {
+                  name: 'sounds/[hash]-[name].[ext]'
+              }
+          }]
       }
     ],
   },
