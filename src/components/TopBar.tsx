@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled'
 import oponderProfile from '../images/oponder.png';
+import useClock from '../effects/useClock.tsx';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -90,6 +91,7 @@ const BatteryLevel = styled('div')`
 export interface Props {  }
 
 export default (props: Props) => {
+  const time = useClock();
   const [batteryLevel, setBatteryLevel] = useState(100);
 
   const toggleSize = () => {
@@ -109,7 +111,7 @@ export default (props: Props) => {
 
     <SystemInfo>
       <Time>
-        2:12<span>AM</span>
+        {time.hour}:{time.minute}<span>{time.amOrPm}</span>
       </Time>
 
       <Wifi>
