@@ -9,3 +9,10 @@ Start the development server with
 ```
 yarn start
 ```
+
+------------------
+
+Deploy
+
+yarn build
+`GIT_DEPLOY_DIR=dist GIT_DEPLOY_BRANCH=gh-pages GIT_DEPLOY_REPO=git@github.com:oponder/game-ui.git ./deploy.sh`
