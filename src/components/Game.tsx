@@ -31,6 +31,7 @@ const GameIcon = styled('div')`
 
   &:hover {
     background-color: #555;
+    cursor: pointer;
   }
 `;
 

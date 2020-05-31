@@ -64,8 +64,6 @@ export default (props: Props) => {
     c2.play();
   }
 
-  console.log('rendered games list');
-
   return <Wrapper ref={listRef}>
     <List>
       {
