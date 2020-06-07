@@ -106,7 +106,7 @@ export default (props: Props) => {
 
   return <Wrapper>
     <Users>
-      <User />
+      <User tabIndex={0} />
     </Users>
 
     <SystemInfo>

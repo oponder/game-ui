@@ -20,11 +20,11 @@ export interface Props {}
 
 export default (props: Props) => {
   return <Wrapper>
-    <NavItem />
-    <NavItem />
-    <NavItem />
-    <NavItem />
-    <NavItem />
-    <NavItem />
+    <NavItem tabIndex={0} />
+    <NavItem tabIndex={0} />
+    <NavItem tabIndex={0} />
+    <NavItem tabIndex={0} />
+    <NavItem tabIndex={0} />
+    <NavItem tabIndex={0} />
   </Wrapper>;
 }

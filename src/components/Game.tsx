@@ -8,10 +8,6 @@ const borderGlow = keyframes`
   100% { border-color: #43B0A1 }
 `
 
-const Wrapper = styled('div')`
-  margin-right: 10px;
-  display: inline-block;
-`;
 
 const GameIcon = styled('div')`
   box-sizing: border-box;
@@ -35,6 +31,17 @@ const GameIcon = styled('div')`
   }
 `;
 
+const Wrapper = styled('div')`
+  margin-right: 10px;
+  display: inline-block;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+`;
+
+
 const Title = styled('div')`
   overflow: hidden;
   width: 200px;
@@ -44,10 +51,10 @@ const Title = styled('div')`
   font-weight: bold;
 `;
 
-export interface Props { selected: boolean, title: string, onMouseDown: () => void, onClick: () => void, forwardedRef: any}
+export interface Props { onBlur: () => void, tabIndex: number, selected: boolean, title: string, onMouseDown: () => void, onClick: () => void, forwardedRef: any}
 
 export default (props: Props) => {
-  return <Wrapper onClick={props.onClick} onMouseDown={props.onMouseDown} ref={props.forwardedRef}>
+  return <Wrapper className={props.selected ? 'selected' : undefined} tabIndex={props.tabIndex} onBlur={props.onBlur} onFocus={props.onClick} onClick={props.onClick} onMouseDown={props.onMouseDown} ref={props.forwardedRef}>
     {
       props.selected && <Title>{props.title}</Title>
     }

@@ -18,6 +18,10 @@ const List = styled('div')`
   white-space: nowrap;
   overflow-y: hidden;
   width: fit-content;
+
+  &.none-selected {
+    padding-left: 61px;
+  }
 `;
 
 let c1 = new Audio(click1);
@@ -60,14 +64,46 @@ export default (props: Props) => {
     setGames(ga);
   }
 
+  const deSelect = (title: string) => {
+    let selectedGame: IGame = null;
+
+    let ga = games.map(g => {
+      if (g.title === title) {
+        selectedGame = g;
+        return Object.assign({}, g, {selected: false})
+      }
+      return Object.assign({}, g, {selected: false})}
+    );
+
+    if(selectedGame.ref !== null) {
+      console.log(selectedGame.ref.current.offsetLeft);
+      // listRef.current.scrollLeft = selectedGame.ref.current.offsetLeft - 40;
+    }
+
+    setGames(ga);
+  }
+
+  const noneSelected = () => {
+    return games.every(g => g.selected === false);
+  }
+
   const blip = () => {
-    c2.play();
+    // c2.play();
   }
 
   return <Wrapper ref={listRef}>
-    <List>
+    <List className={noneSelected() ? 'none-selected' : undefined} >
       {
-        games.map(g => <Game forwardedRef={g.ref} key={g.title} selected={g.selected} title={g.title} onMouseDown={blip} onClick={select.bind(undefined, g.title)} />)
+        games.map(g => <Game
+          forwardedRef={g.ref}
+          key={g.title}
+          selected={g.selected}
+          title={g.title}
+          onMouseDown={blip}
+          onBlur={deSelect.bind(undefined, g.title)}
+          onClick={select.bind(undefined, g.title)}
+          tabIndex={0}
+        />)
       }
     </List>
   </Wrapper>;
