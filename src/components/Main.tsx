@@ -7,7 +7,9 @@ import GamesList from "./GamesList";
 import LockScreen from "./LockScreen";
 
 const Wrapper = styled('div')`
-  padding: 35px 45px;
+  padding: ${({padding}: any) => padding ? '35px 45px;' : ';'}
+  height: 100%;
+  box-sizing: border-box;
 `;
 
 const Spacer = styled('div')`
@@ -25,7 +27,7 @@ export const Main = () => {
     setState({showLockScreen: false});
   }
 
-  return <Wrapper>{
+  return <Wrapper {...{padding: ! state.showLockScreen}}>{
     state.showLockScreen ?
       <LockScreen unlock={unlock}/> :
       <>

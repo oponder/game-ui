@@ -49,7 +49,7 @@ module.exports = {
           }]
       },
       {
-          test: /\.(wav)$/,
+          test: /\.(wav|mp3)$/,
           use: [{
               loader: 'url-loader',
               options: {
