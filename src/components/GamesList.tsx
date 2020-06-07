@@ -56,11 +56,6 @@ export default (props: Props) => {
       return Object.assign({}, g, {selected: false})}
     );
 
-    if(selectedGame.ref !== null) {
-      console.log(selectedGame.ref.current.offsetLeft);
-      // listRef.current.scrollLeft = selectedGame.ref.current.offsetLeft - 40;
-    }
-
     setGames(ga);
   }
 
@@ -74,11 +69,6 @@ export default (props: Props) => {
       }
       return Object.assign({}, g, {selected: false})}
     );
-
-    if(selectedGame.ref !== null) {
-      console.log(selectedGame.ref.current.offsetLeft);
-      // listRef.current.scrollLeft = selectedGame.ref.current.offsetLeft - 40;
-    }
 
     setGames(ga);
   }
