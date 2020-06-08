@@ -43,11 +43,11 @@ const MainArea = styled('div')`
   flex-direction: column;
 
   transform: scale3d(1,1,1);
-  transition: 0.5s;
+  transition: 0.25s;
   opacity: 1;
 
   &.activated {
-    transform: scale3d(1.5,1.5,3);
+    transform: scale3d(1.15,1.15,1.15);
     opacity: 0;
   }
 `
